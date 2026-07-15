@@ -1,6 +1,5 @@
 import './App.css'
 
-import Navigation from './components/Navigation'
 import Home from './components/Home'
 import AddMember from './components/AddMember'
 import AddWorkout from './components/AddWorkout'
@@ -13,7 +12,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 function App() {
   return (
     <BrowserRouter>
-      <Navigation />
+   
 
       <Routes>
         <Route path="/" element={<Home />} />
