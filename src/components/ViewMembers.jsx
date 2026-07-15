@@ -4,24 +4,27 @@ import axios from "axios";
 const ViewMembers = () => {
 
     const [members, setMembers] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const fetchMembers = () => {
 
-        axios.post("http://localhost:3000/view-members", {})
+        axios.post("http://localhost:3000/view-mems", {})
 
         .then((response) => {
 
             setMembers(response.data);
+            setLoading(false);
 
         })
 
         .catch((error) => {
 
             console.log(error);
+            setLoading(false);
 
         });
 
-    }
+    };
 
     useEffect(() => {
 
@@ -45,59 +48,82 @@ const ViewMembers = () => {
 
                 <div className="card-body">
 
-                    <div className="table-responsive">
+                    {
+                        loading ?
 
-                        <table className="table table-bordered table-hover table-striped">
+                        <h5 className="text-center">
+                            Loading...
+                        </h5>
 
-                            <thead className="table-dark">
+                        :
 
-                                <tr>
+                        <div className="table-responsive">
 
-                                    <th>Member ID</th>
-                                    <th>Member Name</th>
-                                    <th>Age</th>
-                                    <th>Gender</th>
-                                    <th>Phone Number</th>
-                                    <th>Email</th>
-                                    <th>Membership Type</th>
-                                    <th>Joining Date</th>
-                                    <th>Expiry Date</th>
-                                    <th>Locker Number</th>
+                            <table className="table table-bordered table-striped table-hover">
 
-                                </tr>
+                                <thead className="table-dark">
 
-                            </thead>
+                                    <tr>
 
-                            <tbody>
+                                        <th>Member ID</th>
+                                        <th>Member Name</th>
+                                        <th>Age</th>
+                                        <th>Gender</th>
+                                        <th>Phone Number</th>
+                                        <th>Email</th>
+                                        <th>Membership Type</th>
+                                        <th>Joining Date</th>
+                                        <th>Expiry Date</th>
+                                        <th>Locker Number</th>
 
-                                {
+                                    </tr>
 
-                                    members.map((value,index)=>(
+                                </thead>
 
-                                        <tr key={index}>
+                                <tbody>
 
-                                            <td>{value.memberId}</td>
-                                            <td>{value.memberName}</td>
-                                            <td>{value.age}</td>
-                                            <td>{value.gender}</td>
-                                            <td>{value.phoneNumber}</td>
-                                            <td>{value.email}</td>
-                                            <td>{value.membershipType}</td>
-                                            <td>{value.joiningDate}</td>
-                                            <td>{value.expiryDate}</td>
-                                            <td>{value.lockerNumber}</td>
+                                    {
 
-                                        </tr>
+                                        members.length > 0 ?
 
-                                    ))
+                                            members.map((value, index) => (
 
-                                }
+                                                <tr key={index}>
 
-                            </tbody>
+                                                    <td>{value.member_id}</td>
+                                                    <td>{value.member_name}</td>
+                                                    <td>{value.age}</td>
+                                                    <td>{value.gender}</td>
+                                                    <td>{value.phone_number}</td>
+                                                    <td>{value.email}</td>
+                                                    <td>{value.membership_type}</td>
+                                                    <td>{value.joining_date}</td>
+                                                    <td>{value.expiry_date}</td>
+                                                    <td>{value.locker_number}</td>
 
-                        </table>
+                                                </tr>
 
-                    </div>
+                                            ))
+
+                                            :
+
+                                            <tr>
+
+                                                <td colSpan="10" className="text-center">
+                                                    No Members Found
+                                                </td>
+
+                                            </tr>
+
+                                    }
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    }
 
                 </div>
 
@@ -105,8 +131,8 @@ const ViewMembers = () => {
 
         </div>
 
-    )
+    );
 
-}
+};
 
 export default ViewMembers;
