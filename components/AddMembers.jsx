@@ -39,7 +39,7 @@ const AddMember = () => {
                 <div className="row g-3 mt-3">
 
                     <div className="col-12">
-                        <h2 className="text-center">Add Member</h2>
+                        <h2 className="text-center">Add Member1</h2>
                     </div>
 
                     <div className="col-md-6">
