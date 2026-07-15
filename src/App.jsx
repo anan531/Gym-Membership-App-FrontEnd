@@ -1,45 +1,34 @@
-import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+import "./App.css";
 
+import Home from "./components/Home";
 import AddMember from "./components/AddMember";
-import AddTrainer from "./components/AddTrainer";
 import AddWorkout from "./components/AddWorkout";
+import AddTrainer from "./components/AddTrainer";
 import ViewMembers from "./components/ViewMembers";
-import ViewTrainers from "./components/ViewTrainers";
 import ViewWorkouts from "./components/ViewWorkouts";
-import { BrowserRouter } from "react-router-dom";
+import ViewTrainers from "./components/ViewTrainers";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
+    <BrowserRouter>
+      <Routes>
+        {/* Home */}
+        <Route path="/" element={<Home />} />
 
-    <>
-      <BrowserRouter>
-        <Routes>
+        {/* Add */}
+        <Route path="/addmember" element={<AddMember />} />
+        <Route path="/addworkout" element={<AddWorkout />} />
+        <Route path="/addtrainer" element={<AddTrainer />} />
 
-        <Route
-          path="/"
-          element={
-            <div className="container mt-5 text-center">
-              <h2>Gym Membership Management System</h2>
-              <p>Welcome to the Gym Management Frontend</p>
-            </div>
-          }
-        />
-
-        <Route path="/add-member" element={<AddMember />} />
-        <Route path="/add-workout" element={<AddWorkout />} />
-        <Route path="/add-trainer" element={<AddTrainer />} />
-
-        <Route path="/view-members" element={<ViewMembers />} />
-        <Route path="/view-workouts" element={<ViewWorkouts />} />
-        <Route path="/view-trainers" element={<ViewTrainers />} />
-
+        {/* View */}
+        <Route path="/viewmember" element={<ViewMembers />} />
+        <Route path="/viewworkout" element={<ViewWorkouts />} />
+        <Route path="/viewtrainer" element={<ViewTrainers />} />
       </Routes>
-      </BrowserRouter>
-    </>
-
+    </BrowserRouter>
   );
-
 }
 
 export default App;
