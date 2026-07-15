@@ -1,18 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import NavigationBar from './components/NavigationBar'
+import Home from './components/Home'
+import AddMember from './components/AddMember'
+import AddWorkout from './components/AddWorkout'
+import AddTrainer from './components/AddTrainer'
+import ViewMembers from './components/ViewMembers'
+import ViewWorkouts from './components/ViewWorkouts'
+import ViewTrainers from './components/ViewTrainers'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-     
-    </>
+    <BrowserRouter>
+
+      <NavigationBar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/add-member" element={<AddMember />} />
+        <Route path="/add-workout" element={<AddWorkout />} />
+        <Route path="/add-trainer" element={<AddTrainer />} />
+
+        <Route path="/view-members" element={<ViewMembers />} />
+        <Route path="/view-workouts" element={<ViewWorkouts />} />
+        <Route path="/view-trainers" element={<ViewTrainers />} />
+      </Routes>
+
+    </BrowserRouter>
   )
 }
-
 
 export default App
