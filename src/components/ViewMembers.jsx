@@ -1,43 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const ViewMembers = () => {
 
-    const [members] = useState([
+    const [members, setMembers] = useState([]);
 
-        {
-            memberId: "M001",
-            name: "Joshua",
-            age: 22,
-            gender: "Male",
-            phone: "9876543210",
-            membership: "Premium",
-            trainer: "John",
-            joinDate: "2026-07-15"
-        },
+    const fetchMembers = () => {
 
-        {
-            memberId: "M002",
-            name: "Anan",
-            age: 24,
-            gender: "Male",
-            phone: "9876543211",
-            membership: "Gold",
-            trainer: "David",
-            joinDate: "2026-07-14"
-        },
+        axios.post("http://localhost:3000/view-members", {})
 
-        {
-            memberId: "M003",
-            name: "Rahul",
-            age: 23,
-            gender: "Male",
-            phone: "9876543212",
-            membership: "Silver",
-            trainer: "John",
-            joinDate: "2026-07-10"
-        }
+        .then((response) => {
 
-    ]);
+            setMembers(response.data);
+
+        })
+
+        .catch((error) => {
+
+            console.log(error);
+
+        });
+
+    }
+
+    useEffect(() => {
+
+        fetchMembers();
+
+    }, []);
 
     return (
 
@@ -64,13 +54,15 @@ const ViewMembers = () => {
                                 <tr>
 
                                     <th>Member ID</th>
-                                    <th>Name</th>
+                                    <th>Member Name</th>
                                     <th>Age</th>
                                     <th>Gender</th>
-                                    <th>Phone</th>
-                                    <th>Membership</th>
-                                    <th>Trainer</th>
-                                    <th>Join Date</th>
+                                    <th>Phone Number</th>
+                                    <th>Email</th>
+                                    <th>Membership Type</th>
+                                    <th>Joining Date</th>
+                                    <th>Expiry Date</th>
+                                    <th>Locker Number</th>
 
                                 </tr>
 
@@ -85,13 +77,15 @@ const ViewMembers = () => {
                                         <tr key={index}>
 
                                             <td>{value.memberId}</td>
-                                            <td>{value.name}</td>
+                                            <td>{value.memberName}</td>
                                             <td>{value.age}</td>
                                             <td>{value.gender}</td>
-                                            <td>{value.phone}</td>
-                                            <td>{value.membership}</td>
-                                            <td>{value.trainer}</td>
-                                            <td>{value.joinDate}</td>
+                                            <td>{value.phoneNumber}</td>
+                                            <td>{value.email}</td>
+                                            <td>{value.membershipType}</td>
+                                            <td>{value.joiningDate}</td>
+                                            <td>{value.expiryDate}</td>
+                                            <td>{value.lockerNumber}</td>
 
                                         </tr>
 
@@ -115,4 +109,4 @@ const ViewMembers = () => {
 
 }
 
-export default ViewMembers
+export default ViewMembers;
