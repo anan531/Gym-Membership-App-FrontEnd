@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Navigation from "./Navigation";
 
 const ViewWorkouts = () => {
 
@@ -33,7 +34,8 @@ const ViewWorkouts = () => {
     }, []);
 
     return (
-
+<div>
+  <Navigation/>
         <div className="container mt-4">
 
             <div className="card shadow">
@@ -129,7 +131,7 @@ const ViewWorkouts = () => {
             </div>
 
         </div>
-
+</div>
     );
 
 };
