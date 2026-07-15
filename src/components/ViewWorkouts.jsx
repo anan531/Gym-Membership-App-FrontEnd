@@ -1,37 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const ViewWorkouts = () => {
 
-    const [workouts] = useState([
+    const [workouts, setWorkouts] = useState([]);
 
-        {
-            workoutId: "W001",
-            workoutName: "Chest Workout",
-            trainer: "John",
-            duration: "60 mins",
-            difficulty: "Intermediate",
-            calories: "450"
-        },
+    const fetchWorkouts = () => {
 
-        {
-            workoutId: "W002",
-            workoutName: "Leg Workout",
-            trainer: "David",
-            duration: "75 mins",
-            difficulty: "Advanced",
-            calories: "600"
-        },
+        axios.post("http://localhost:3000/view-workouts", {})
 
-        {
-            workoutId: "W003",
-            workoutName: "Yoga",
-            trainer: "Maria",
-            duration: "45 mins",
-            difficulty: "Beginner",
-            calories: "220"
-        }
+        .then((response) => {
 
-    ]);
+            setWorkouts(response.data);
+
+        })
+
+        .catch((error) => {
+
+            console.log(error);
+
+        });
+
+    }
+
+    useEffect(() => {
+
+        fetchWorkouts();
+
+    }, []);
 
     return (
 
@@ -51,7 +47,7 @@ const ViewWorkouts = () => {
 
                     <div className="table-responsive">
 
-                        <table className="table table-bordered table-striped table-hover">
+                        <table className="table table-bordered table-hover table-striped">
 
                             <thead className="table-dark">
 
@@ -59,10 +55,14 @@ const ViewWorkouts = () => {
 
                                     <th>Workout ID</th>
                                     <th>Workout Name</th>
-                                    <th>Trainer</th>
+                                    <th>Workout Type</th>
                                     <th>Duration</th>
-                                    <th>Difficulty</th>
-                                    <th>Calories Burned</th>
+                                    <th>Difficulty Level</th>
+                                    <th>Target Muscle Group</th>
+                                    <th>Equipment Required</th>
+                                    <th>Calories Burn Estimate</th>
+                                    <th>Trainer Name</th>
+                                    <th>Schedule</th>
 
                                 </tr>
 
@@ -78,10 +78,14 @@ const ViewWorkouts = () => {
 
                                             <td>{value.workoutId}</td>
                                             <td>{value.workoutName}</td>
-                                            <td>{value.trainer}</td>
+                                            <td>{value.workoutType}</td>
                                             <td>{value.duration}</td>
-                                            <td>{value.difficulty}</td>
-                                            <td>{value.calories}</td>
+                                            <td>{value.difficultyLevel}</td>
+                                            <td>{value.targetMuscleGroup}</td>
+                                            <td>{value.equipmentRequired}</td>
+                                            <td>{value.caloriesBurnEstimate}</td>
+                                            <td>{value.trainerName}</td>
+                                            <td>{value.schedule}</td>
 
                                         </tr>
 
