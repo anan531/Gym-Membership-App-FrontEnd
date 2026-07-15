@@ -40,7 +40,7 @@ const ViewMembers = () => {
 
             <div className="card shadow">
 
-                <div className="card-header bg-primary text-white">
+                <div className="card-header bg-dark text-white">
 
                     <h3 className="text-center">
                         View Members

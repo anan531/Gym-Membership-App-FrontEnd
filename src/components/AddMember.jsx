@@ -41,17 +41,17 @@ const AddMember = () => {
                 <div className="row g-3 mt-3">
 
                     <div className="col-12">
-                        <h2 className="text-center">Add Member1</h2>
+                        <h2 className="text-center">Add Member</h2>
                     </div>
 
                     <div className="col-md-6">
                         <label className="form-label">Member ID</label>
-                        <input type="text" className="form-control" name="memberId" value={member.memberId} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="member_id" value={member.member_id} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
                         <label className="form-label">Member Name</label>
-                        <input type="text" className="form-control" name="memberName" value={member.memberName} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="member_name" value={member.member_name} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-4">
@@ -70,7 +70,7 @@ const AddMember = () => {
 
                     <div className="col-md-4">
                         <label className="form-label">Phone Number</label>
-                        <input type="text" className="form-control" name="phoneNumber" value={member.phoneNumber} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="phone_number" value={member.phone_number} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
@@ -80,26 +80,26 @@ const AddMember = () => {
 
                     <div className="col-md-6">
                         <label className="form-label">Membership Type</label>
-                        <input type="text" className="form-control" name="membershipType" value={member.membershipType} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="membership_type" value={member.membership_type} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
                         <label className="form-label">Joining Date</label>
-                        <input type="date" className="form-control" name="joiningDate" value={member.joiningDate} onChange={inputHandler} />
+                        <input type="date" className="form-control" name="joining_date" value={member.joining_date} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
                         <label className="form-label">Expiry Date</label>
-                        <input type="date" className="form-control" name="expiryDate" value={member.expiryDate} onChange={inputHandler} />
+                        <input type="date" className="form-control" name="expiry_date" value={member.expiry_date} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
                         <label className="form-label">Locker Number</label>
-                        <input type="text" className="form-control" name="lockerNumber" value={member.lockerNumber} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="locker_number" value={member.locker_number} onChange={inputHandler} />
                     </div>
 
                     <div className="col-12 text-center">
-                        <button className="btn btn-primary" onClick={readValues}>
+                        <button className="btn btn-dark" onClick={readValues}>
                             Add Member
                         </button>
                     </div>

@@ -40,7 +40,7 @@ const ViewTrainers = () => {
 
             <div className="card shadow">
 
-                <div className="card-header bg-warning text-dark">
+                <div className="card-header bg-dark text-white">
 
                     <h3 className="text-center">
                         View Trainers

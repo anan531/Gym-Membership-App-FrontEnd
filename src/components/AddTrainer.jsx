@@ -46,12 +46,12 @@ const AddTrainer = () => {
 
                     <div className="col-md-6">
                         <label className="form-label">Trainer ID</label>
-                        <input type="text" className="form-control" name="trainerId" value={trainer.trainerId} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="trainer_id" value={trainer.trainer_id} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
                         <label className="form-label">Trainer Name</label>
-                        <input type="text" className="form-control" name="trainerName" value={trainer.trainerName} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="trainer_name" value={trainer.trainer_name} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-4">
@@ -70,7 +70,7 @@ const AddTrainer = () => {
 
                     <div className="col-md-4">
                         <label className="form-label">Phone Number</label>
-                        <input type="text" className="form-control" name="phoneNumber" value={trainer.phoneNumber} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="phone_number" value={trainer.phone_number} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
@@ -95,11 +95,11 @@ const AddTrainer = () => {
 
                     <div className="col-md-4">
                         <label className="form-label">Shift Timing</label>
-                        <input type="text" className="form-control" name="shiftTiming" value={trainer.shiftTiming} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="shift_timing" value={trainer.shift_timing} onChange={inputHandler} />
                     </div>
 
                     <div className="col-12 text-center">
-                        <button className="btn btn-primary" onClick={readValues}>
+                        <button className="btn btn-dark" onClick={readValues}>
                             Add Trainer
                         </button>
                     </div>
