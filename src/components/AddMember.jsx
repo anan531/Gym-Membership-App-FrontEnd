@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Navigation from './Navigation'
 
 const AddMember = () => {
 
@@ -35,6 +36,7 @@ const AddMember = () => {
 
     return (
         <div>
+          <Navigation/>
             <div className="container">
                 <div className="row g-3 mt-3">
 

@@ -1,29 +1,38 @@
 import React from 'react'
+import Navigation from './Navigation'
 
 const Home = () => {
   return (
-    <div className="container mt-5">
-      <div className="text-center">
+    <div>
+      <Navigation/>
+    <div
+      className="container-fluid d-flex justify-content-center align-items-center"
+      style={{ minHeight: "90vh", backgroundColor: "#f8f9fa" }}
+    >
+      <div
+        className="card shadow-lg p-5 text-center"
+        style={{ maxWidth: "700px", borderRadius: "15px" }}
+      >
+        <h1 className="display-4 text-primary mb-3">
+          Gym Membership Management System
+        </h1>
 
-        <h1 className="mb-4">Gym Membership Management System</h1>
+        <hr />
 
-        <p className="lead">
+        <p className="lead mt-3">
           Welcome to the Gym Membership Management System.
         </p>
 
-        <div className="card mt-4 p-4">
-          <h4>Available Modules</h4>
-          <ul className="list-group mt-3">
-            <li className="list-group-item">Add Member</li>
-            <li className="list-group-item">View Members</li>
-            <li className="list-group-item">Add Workout</li>
-            <li className="list-group-item">View Workouts</li>
-            <li className="list-group-item">Add Trainer</li>
-            <li className="list-group-item">View Trainers</li>
-          </ul>
-        </div>
+        <p className="text-muted">
+          Manage members, trainers, and workout plans efficiently through a
+          simple and user-friendly interface.
+        </p>
 
+        <div className="mt-4">
+          <h5>🏋️ Fitness • 💪 Strength • ❤️ Health</h5>
+        </div>
       </div>
+    </div>
     </div>
   )
 }
