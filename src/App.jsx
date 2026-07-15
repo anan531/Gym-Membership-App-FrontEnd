@@ -13,22 +13,17 @@ import ViewTrainers from './components/ViewTrainers'
 function App() {
   return (
     <BrowserRouter>
-
-      <NavigationBar />
+      <Navigation />
 
       <Routes>
         <Route path="/" element={<Home />} />
-
-        <Route path="/add-member" element={<AddMember />} />
-        <Route path="/view-members" element={<ViewMembers />} />
-
-        <Route path="/add-workout" element={<AddWorkout />} />
-        <Route path="/view-workouts" element={<ViewWorkouts />} />
-
-        <Route path="/add-trainer" element={<AddTrainer />} />
-        <Route path="/view-trainers" element={<ViewTrainers />} />
+        <Route path="/addmember" element={<AddMember />} />
+        <Route path="/addworkout" element={<AddWorkout />} />
+        <Route path="/addtrainer" element={<AddTrainer />} />
+        <Route path="/viewmember" element={<ViewMembers />} />
+        <Route path="/viewworkout" element={<ViewWorkouts />} />
+        <Route path="/viewtrainer" element={<ViewTrainers />} />
       </Routes>
-
     </BrowserRouter>
   )
 }
