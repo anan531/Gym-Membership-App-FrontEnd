@@ -23,7 +23,7 @@ const AddWorkout = () => {
     const readValues = () => {
         console.log(workout)
 
-        axios.post("http://localhost:5000/addworkout", workout)
+        axios.post("http://localhost:3000/add-workout", workout)
             .then((response) => {
                 alert("Workout Added Successfully")
             })

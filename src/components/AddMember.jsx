@@ -23,7 +23,7 @@ const AddMember = () => {
     const readValues = () => {
         console.log(member)
 
-        axios.post("http://localhost:5000/addmember", member)
+        axios.post("http://localhost:3000/add-mem", member)
             .then((response) => {
                 alert("Member Added Successfully")
             })

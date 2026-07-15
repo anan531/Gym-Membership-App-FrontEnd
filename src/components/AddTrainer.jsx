@@ -23,7 +23,7 @@ const AddTrainer = () => {
     const readValues = () => {
         console.log(trainer)
 
-        axios.post("http://localhost:5000/addtrainer", trainer)
+        axios.post("http://localhost:3000/add-trainer", trainer)
             .then((response) => {
                 alert("Trainer Added Successfully")
             })
