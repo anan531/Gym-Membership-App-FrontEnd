@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Navigation from "./Navigation";
 
 const ViewMembers = () => {
 
@@ -78,12 +79,13 @@ const ViewMembers = () => {
     });
 
     return (
-
+      <div>
+        <Navigation/>
         <div className="container mt-4">
 
             <div className="card shadow">
 
-                <div className="card-header bg-primary text-white">
+                <div className="card-header bg-dark text-white">
 
                     <h3 className="text-center">
                         View Members
@@ -200,9 +202,10 @@ const ViewMembers = () => {
             </div>
 
         </div>
-
+</div>
     );
 
 };
+
 
 export default ViewMembers;

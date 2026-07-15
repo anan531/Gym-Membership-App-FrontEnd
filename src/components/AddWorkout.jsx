@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Navigation from './Navigation'
 
 const AddWorkout = () => {
 
@@ -23,7 +24,7 @@ const AddWorkout = () => {
     const readValues = () => {
         console.log(workout)
 
-        axios.post("http://localhost:5000/addworkout", workout)
+        axios.post("http://localhost:3000/add-workout", workout)
             .then((response) => {
                 alert("Workout Added Successfully")
             })
@@ -35,6 +36,7 @@ const AddWorkout = () => {
 
     return (
         <div>
+          <Navigation/>
             <div className="container">
                 <div className="row g-3 mt-3">
 
@@ -44,22 +46,22 @@ const AddWorkout = () => {
 
                     <div className="col-md-6">
                         <label className="form-label">Workout ID</label>
-                        <input type="text" className="form-control" name="workoutId" value={workout.workoutId} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="workout_id" value={workout.workout_id} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
                         <label className="form-label">Workout Name</label>
-                        <input type="text" className="form-control" name="workoutName" value={workout.workoutName} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="workout_name" value={workout.workout_name} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
                         <label className="form-label">Workout Type</label>
-                        <input type="text" className="form-control" name="workoutType" value={workout.workoutType} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="workout_type" value={workout.workout_type} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
                         <label className="form-label">Trainer Name</label>
-                        <input type="text" className="form-control" name="trainerName" value={workout.trainerName} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="trainer_name" value={workout.trainer_name} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-4">
@@ -69,31 +71,26 @@ const AddWorkout = () => {
 
                     <div className="col-md-4">
                         <label className="form-label">Difficulty Level</label>
-                        <input type="text" className="form-control" name="difficultyLevel" value={workout.difficultyLevel} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="difficulty_level" value={workout.difficulty_level} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-4">
                         <label className="form-label">Target Muscle Group</label>
-                        <input type="text" className="form-control" name="targetMuscleGroup" value={workout.targetMuscleGroup} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="target_muscle_group" value={workout.target_muscle_group} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
                         <label className="form-label">Calories Burn Estimate</label>
-                        <input type="number" className="form-control" name="caloriesBurnEstimate" value={workout.caloriesBurnEstimate} onChange={inputHandler} />
+                        <input type="number" className="form-control" name="calories_burn_estimate" value={workout.calories_burn_estimate} onChange={inputHandler} />
                     </div>
 
                     <div className="col-md-6">
                         <label className="form-label">Equipment Required</label>
-                        <input type="text" className="form-control" name="equipmentRequired" value={workout.equipmentRequired} onChange={inputHandler} />
-                    </div>
-
-                    <div className="col-md-6">
-                        <label className="form-label">Workout Schedule</label>
-                        <input type="text" className="form-control" name="workoutSchedule" value={workout.workoutSchedule} onChange={inputHandler} />
+                        <input type="text" className="form-control" name="equipment_required" value={workout.equipment_required} onChange={inputHandler} />
                     </div>
 
                     <div className="col-12 text-center">
-                        <button className="btn btn-primary" onClick={readValues}>
+                        <button className="btn btn-dark" onClick={readValues}>
                             Add Workout
                         </button>
                     </div>

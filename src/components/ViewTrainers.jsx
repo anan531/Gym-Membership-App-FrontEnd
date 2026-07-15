@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Navigation from "./Navigation";
 
 const ViewTrainers = () => {
 
@@ -33,12 +34,13 @@ const ViewTrainers = () => {
     }, []);
 
     return (
-
+<div>
+  <Navigation/>
         <div className="container mt-4">
 
             <div className="card shadow">
 
-                <div className="card-header bg-warning text-dark">
+                <div className="card-header bg-dark text-white">
 
                     <h3 className="text-center">
                         View Trainers
@@ -131,7 +133,7 @@ const ViewTrainers = () => {
             </div>
 
         </div>
-
+</div>
     );
 
 };

@@ -1,5 +1,4 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Navigation from './components/Navigation'
 import Home from './components/Home'
@@ -9,6 +8,7 @@ import AddTrainer from './components/AddTrainer'
 import ViewMembers from './components/ViewMembers'
 import ViewWorkouts from './components/ViewWorkouts'
 import ViewTrainers from './components/ViewTrainers'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
