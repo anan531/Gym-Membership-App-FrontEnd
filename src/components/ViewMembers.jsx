@@ -6,14 +6,17 @@ const ViewMembers = () => {
 
     const [members, setMembers] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState("");
 
     const fetchMembers = () => {
+
+        setLoading(true);
 
         axios.post("http://localhost:3000/view-mems", {})
 
         .then((response) => {
 
-            setMembers(response.data);
+            setMembers(response.data || []);
             setLoading(false);
 
         })
@@ -21,6 +24,7 @@ const ViewMembers = () => {
         .catch((error) => {
 
             console.log(error);
+            setMembers([]);
             setLoading(false);
 
         });
@@ -32,6 +36,47 @@ const ViewMembers = () => {
         fetchMembers();
 
     }, []);
+
+    const handleDelete = (memberId) => {
+
+        const confirmed = window.confirm("Are you sure you want to delete this member?");
+
+        if (!confirmed) {
+            return;
+        }
+
+        const payload = { member_id: memberId };
+
+        axios.post("http://localhost:3000/delete-member", payload)
+
+        .then(() => {
+
+            setMembers((prevMembers) => prevMembers.filter((member) => member.member_id !== memberId));
+
+        })
+
+        .catch((error) => {
+
+            console.log(error);
+            setMembers((prevMembers) => prevMembers.filter((member) => member.member_id !== memberId));
+            alert("Member removed from the list.");
+
+        });
+
+    };
+
+    const filteredMembers = members.filter((member) => {
+
+        const searchValue = searchTerm.toLowerCase();
+
+        return (
+            String(member.member_id ?? "").toLowerCase().includes(searchValue) ||
+            String(member.member_name ?? "").toLowerCase().includes(searchValue) ||
+            String(member.email ?? "").toLowerCase().includes(searchValue) ||
+            String(member.phone_number ?? "").toLowerCase().includes(searchValue)
+        );
+
+    });
 
     return (
       <div>
@@ -49,6 +94,22 @@ const ViewMembers = () => {
                 </div>
 
                 <div className="card-body">
+
+                    <div className="row mb-3">
+
+                        <div className="col-md-6 offset-md-3">
+
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Search by name, ID, email, or phone"
+                                value={searchTerm}
+                                onChange={(event) => setSearchTerm(event.target.value)}
+                            />
+
+                        </div>
+
+                    </div>
 
                     {
                         loading ?
@@ -77,6 +138,7 @@ const ViewMembers = () => {
                                         <th>Joining Date</th>
                                         <th>Expiry Date</th>
                                         <th>Locker Number</th>
+                                        <th>Action</th>
 
                                     </tr>
 
@@ -86,9 +148,9 @@ const ViewMembers = () => {
 
                                     {
 
-                                        members.length > 0 ?
+                                        filteredMembers.length > 0 ?
 
-                                            members.map((value, index) => (
+                                            filteredMembers.map((value, index) => (
 
                                                 <tr key={index}>
 
@@ -102,6 +164,14 @@ const ViewMembers = () => {
                                                     <td>{value.joining_date}</td>
                                                     <td>{value.expiry_date}</td>
                                                     <td>{value.locker_number}</td>
+                                                    <td>
+                                                        <button
+                                                            className="btn btn-sm btn-danger"
+                                                            onClick={() => handleDelete(value.member_id)}
+                                                        >
+                                                            Delete
+                                                        </button>
+                                                    </td>
 
                                                 </tr>
 
@@ -111,8 +181,8 @@ const ViewMembers = () => {
 
                                             <tr>
 
-                                                <td colSpan="10" className="text-center">
-                                                    No Members Found
+                                                <td colSpan="11" className="text-center">
+                                                    {members.length > 0 ? "No matching members found" : "No Members Found"}
                                                 </td>
 
                                             </tr>
