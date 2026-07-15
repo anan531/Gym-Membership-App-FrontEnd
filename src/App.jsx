@@ -2,12 +2,13 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import NavigationBar from './components/NavigationBar'
+import Home from './components/Home'
 import AddMember from './components/AddMember'
-import ViewMember from './components/ViewMember'
 import AddWorkout from './components/AddWorkout'
-import ViewWorkout from './components/ViewWorkout'
 import AddTrainer from './components/AddTrainer'
-import ViewTrainer from './components/ViewTrainer'
+import ViewMembers from './components/ViewMembers'
+import ViewWorkouts from './components/ViewWorkouts'
+import ViewTrainers from './components/ViewTrainers'
 
 function App() {
   return (
@@ -16,18 +17,20 @@ function App() {
       <NavigationBar />
 
       <Routes>
-        <Route path="/" element={<AddMember />} />
-        <Route path="/addmember" element={<AddMember />} />
-        <Route path="/viewmember" element={<ViewMember />} />
-        <Route path="/addworkout" element={<AddWorkout />} />
-        <Route path="/viewworkout" element={<ViewWorkout />} />
-        <Route path="/addtrainer" element={<AddTrainer />} />
-        <Route path="/viewtrainer" element={<ViewTrainer />} />
+        <Route path="/" element={<Home />} />
+
+        <Route path="/add-member" element={<AddMember />} />
+        <Route path="/view-members" element={<ViewMembers />} />
+
+        <Route path="/add-workout" element={<AddWorkout />} />
+        <Route path="/view-workouts" element={<ViewWorkouts />} />
+
+        <Route path="/add-trainer" element={<AddTrainer />} />
+        <Route path="/view-trainers" element={<ViewTrainers />} />
       </Routes>
 
     </BrowserRouter>
   )
 }
-
 
 export default App
